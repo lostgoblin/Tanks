@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPawn.h"
+#include "TankBarrel.h"
 
 
 // Sets default values
@@ -10,6 +11,11 @@ ATankPawn::ATankPawn()
 	PrimaryActorTick.bCanEverTick = true;
 
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
+}
+
+void ATankPawn::SetBarrelReference(UTankBarrel* BarrelToSet)
+{
+	TankAimingComponent->SetBarrelReference(BarrelToSet);
 }
 
 // Called when the game starts or when spawned
@@ -35,12 +41,8 @@ void ATankPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ATankPawn::AimAt(FVector HitLocation)
 {
-	TankAimingComponent->AimAt(HitLocation);
-
+	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
-void ATankPawn::SetBarrelReference(UStaticMeshComponent* BarelToSet)
-{
-	TankAimingComponent->SetBarrelReference(BarelToSet);
-}
+
 
