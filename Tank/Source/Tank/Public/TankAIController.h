@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "TankPawn.h"
 #include "AIController.h"
 #include "TankAIController.generated.h"
+
+// forward declaration
+class ATankPawn;
 
 /**
  * 

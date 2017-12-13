@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "TankPawn.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h" // must be last include
+
+//forward declaration
+class ATankPawn;
 
 /**
  * 
