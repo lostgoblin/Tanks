@@ -2,6 +2,7 @@
 
 #include "TankAimingComponent.h"
 #include "TankBarrel.h"
+#include "Engine/World.h"
 #include "TankPawn.h"
 
 
@@ -63,5 +64,5 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto AimAsRotator = AimDirection.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
-	Barrel->Elevate(5); // TODO remove this hardcoded test number
+	Barrel->Elevate(DeltaRotator.Pitch); // TODO remove this hardcoded test number
 }
